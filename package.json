@@ -1,0 +1,28 @@
+{
+  "name": "grid-filter",
+  "version": "0.0.1",
+  "description": "Filter Tool for Grid Component",
+  "main": "src/grid-filter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icanjs/grid-filter.git"
+  },
+  "author": "Bitovi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icanjs/grid-filter/issues"
+  },
+  "homepage": "https://github.com/icanjs/grid-filter#readme",
+  "dependencies": {
+    "can": "^2.3.22",
+    "steal": "^0.13.2"
+  },
+  "devDependencies": {
+    "steal-qunit": "0.1.1",
+    "steal-tools": "0.13.0-pre.0",
+    "testee": "^0.2.5"
+  }
+}
