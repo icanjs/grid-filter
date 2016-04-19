@@ -8,8 +8,8 @@
 import VM from './view-model';
 import template from './template.stache!';
 import './styles.less!';
-import 'rins_cutom_plugin/tokenInput/jquery.tokeninput';
-import './jquery.tokeninput-styles/token-input-facebook.css!';
+import './jquery-tokeninput/';
+import './jquery-tokeninput/token-input-facebook.css!';
 
 can.Component.extend({
     tag: 'grid-filter',

@@ -1,5 +1,5 @@
 import QUnit from 'steal-qunit';
-import VM from './view-model';
+import VM from '../src/view-model';
 
 var vm;
 
@@ -47,8 +47,8 @@ QUnit.test('containsMatch', function(assert) {
 
 QUnit.test('filter', function(assert) {
   var rows = [
-        {id: 1, name: 'one', value: 'my-value', prop: 'my-prop', isVisible: true},
-        {id: 2, name: 'two', value: 'my-value-two', prop: 'my-prop-two', isVisible: true, children: [
+        {id: 1, name: 'one', value: 'my-value', prop: 'my-prop'},
+        {id: 2, name: 'two', value: 'my-value-two', prop: 'my-prop-two', children: [
           {id: 3, name: 'child-two', value: 'my-child-value', prop: 'my-child-prop'}
         ]}
       ],
@@ -60,23 +60,23 @@ QUnit.test('filter', function(assert) {
   });
 
   assert.ok(typeof vm.containsMatch === 'function', 'filter should be defined');
-  assert.equal(vm.attr('rows').filter(row => row.isVisible).length, 2, 'two visible rows');
+  assert.equal(vm.attr('rows').filter(row => !row.isHidden).length, 2, 'two visible rows');
 
   vm.attr('searchTerms', ['1']);
-  assert.equal(vm.attr('rows').filter(row => row.isVisible).length, 1, 'one visible row after filtering by "1"');
+  assert.equal(vm.attr('rows').filter(row => !row.isHidden).length, 1, 'one visible row after filtering by "1"');
 
   // TODO: figure out how to avoid buffer as a workaround the template binding (which caused viewmodel property being set twice)
   vm.attr('searchTerms', ['my-value']);
-  assert.equal(vm.attr('rows').filter(row => row.isVisible).length, 2, 'one visible row after filtering by ["my-value"]');
+  assert.equal(vm.attr('rows').filter(row => !row.isHidden).length, 2, 'one visible row after filtering by ["my-value"]');
 
   vm.attr('searchTerms', ['child']);
-  assert.equal(vm.attr('rows').filter(row => row.isVisible).length, 1, 'one visible row after filtering by child prop ["child"]');
+  assert.equal(vm.attr('rows').filter(row => !row.isHidden).length, 1, 'one visible row after filtering by child prop ["child"]');
 });
 
 QUnit.test('exclude columns', function(assert){
   var rows = [
-    {id: 1, name: 'one', value: 'my-value', prop: 'my-prop', isVisible: true},
-    {id: 2, name: 'two', value: 'my-value-two', prop: 'my-prop-two', isVisible: true}
+    {id: 1, name: 'one', value: 'my-value', prop: 'my-prop'},
+    {id: 2, name: 'two', value: 'my-value-two', prop: 'my-prop-two'}
   ];
 
   vm.attr({
@@ -85,18 +85,18 @@ QUnit.test('exclude columns', function(assert){
   });
 
   vm.attr('searchTerms', ['my-value']);
-  assert.equal(vm.attr('rows.1.isVisible'), true, 'The "value" column was used properly.');
+  assert.equal(vm.attr('rows.1.isHidden'), false, 'The "value" column was used properly.');
 
   // Exclude the value column then search for my-value.  Because the value column is ignored, 
-  // 'my-value' won't be found and both records will be set to {isVisible: false}.
+  // 'my-value' won't be found and both records will be set to {isHidden: false}.
   vm.attr('excludeColumns', 'value');
   vm.attr('searchTerms', []);
   vm.attr('searchTerms', ['my-value']);
-  assert.equal(vm.attr('rows.1.isVisible'), false, 'The "value" column was ignored properly.');
+  assert.equal(vm.attr('rows.1.isHidden'), true, 'The "value" column was ignored properly.');
 
   vm.attr('searchTerms', []);
   vm.attr('searchTerms', ['my-prop-two']);
-  assert.equal(vm.attr('rows.0.isVisible'), false, 'The first row was filtered out on the "prop" column correctly.');
+  assert.equal(vm.attr('rows.0.isHidden'), true, 'The first row was filtered out on the "prop" column correctly.');
 });
 
 // FUNCTIONAL TESTS:

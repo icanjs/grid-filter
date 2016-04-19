@@ -1,0 +1,30 @@
+<style>.hidden { color:lightgray; }</style>
+
+<script type='text/stache' id="demo" can-autorender>
+    <can-import from="src/grid-filter" />
+
+    <grid-filter {(rows)}="rows" selected-row="{selectedRow}"></grid-filter>
+    <ul>
+      {{#each rows}}
+        <li class="{{#if isHidden}}hidden{{/if}}">{{region}}, {{country}}, {{amount}}</li>
+      {{/each}}
+    </ul>
+</script>
+
+<script src='../../node_modules/steal/steal.js'
+        main="can/view/autorender/">
+
+  import can from "can";
+  import $ from "jquery";
+  import _ from "lodash";
+
+  $("#demo").viewModel().attr({
+    rows: new can.List(_.times(10, i => {
+          return {
+            region: ['Europe','America'][i % 2],
+            country: ['AUT','USA','SWE','CAN'][i % 4],
+            amount: [100, 200, 300][i % 3]
+          };
+    }))
+  });
+</script>

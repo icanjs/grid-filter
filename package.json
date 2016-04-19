@@ -1,10 +1,11 @@
 {
   "name": "grid-filter",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Filter Tool for Grid Component",
   "main": "src/grid-filter.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "testee": "testee tests/test_unit.html --browsers firefox",
+    "test": "npm run testee"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,14 @@
   },
   "homepage": "https://github.com/icanjs/grid-filter#readme",
   "dependencies": {
-    "can": "^2.3.22",
-    "steal": "^0.13.2"
+    "can": "^2.3.23",
+    "lodash": "^4.11.1",
+    "steal": "0.16.2"
   },
   "devDependencies": {
+    "babel-core": "^6.7.6",
     "steal-qunit": "0.1.1",
-    "steal-tools": "0.13.0-pre.0",
+    "steal-tools": "0.16.1",
     "testee": "^0.2.5"
   }
 }

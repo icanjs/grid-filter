@@ -109,8 +109,8 @@ export default can.Map.extend({
 
     can.batch.start();
     _.map(rows, function(row){
-      var isVisible = self.containsMatch(searchTerms, row, columns, childrenProp);
-      row.attr('isVisible', isVisible);
+      var isHidden = !self.containsMatch(searchTerms, row, columns, childrenProp);
+      row.attr('isHidden', isHidden);
     });
     can.batch.stop();
   },
