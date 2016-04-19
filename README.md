@@ -1,7 +1,11 @@
-# grid-filter
-Filter tool for the grid-component
+[![Build Status](https://travis-ci.org/icanjs/grid-filter.svg?branch=master)](https://travis-ci.org/icanjs/grid-filter)
+[![npm version](https://badge.fury.io/js/grid-filter.svg)](https://badge.fury.io/js/grid-filter)
+[![Join the chat at https://gitter.im/icanjs/grid-filter](https://badges.gitter.im/icanjs/grid-filter.svg)](https://gitter.im/icanjs/grid-filter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Intro
+
+# grid-filter
+
+A filter tool for the grid-component.
 
 Filter is a tool for _grid-component_ designed to filter a list on entered search terms. Its built with CanJS and StealJS,
 and can be used for CanJS stack including DoneJS (http://donejs.com). Component updates isHidden property of list items
