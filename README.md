@@ -1,4 +1,6 @@
 # grid-filter
+
+[![Join the chat at https://gitter.im/icanjs/grid-filter](https://badges.gitter.im/icanjs/grid-filter.svg)](https://gitter.im/icanjs/grid-filter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Filter tool for the grid-component
 
 ## Intro
