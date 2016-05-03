@@ -1,6 +1,6 @@
 {
   "name": "grid-filter",
-  "version": "0.5.1",
+  "version": "0.5.3",
   "description": "Filter Tool for Grid Component",
   "main": "src/grid-filter.js",
   "scripts": {
@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/icanjs/grid-filter#readme",
   "dependencies": {
-    "can": "^2.3.23",
-    "lodash": "^4.11.1",
-    "steal": "0.16.2"
+    "can": "^2.2.9",
+    "lodash": ">=3.9.1"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",
     "steal-qunit": "0.1.1",
-    "steal-tools": "0.16.1",
-    "testee": "^0.2.5"
+    "steal-tools": ">=0.10.1",
+    "testee": "^0.2.5",
+    "steal": ">=0.10.1"
   }
 }
