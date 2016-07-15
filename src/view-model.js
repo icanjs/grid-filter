@@ -135,7 +135,7 @@ export default can.Map.extend({
         return acc || self.isFoundOne(searchTerms, child, columns);
       }, false);
 
-    console.log('[containsMatch] %s: terms=%s; columns=%s; childrenProp=%s', result, searchTerms.join(','), columns.join(','), childrenProp, row);
+    //console.log('[containsMatch] %s: terms=%s; columns=%s; childrenProp=%s', result, searchTerms.join(','), columns.join(','), childrenProp, row);
 
     return result;
   },
